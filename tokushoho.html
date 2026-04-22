@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記 — Callmint</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f7f4;
+  --surface: #ffffff;
+  --surface2: #eef4ec;
+  --green: #2a8a5e;
+  --green-light: #e6f3ed;
+  --green-dark: #1a5c3e;
+  --text: #1a2a1e;
+  --muted: #55685e;
+  --border: #d4e6da;
+  --mint: #3ecfa0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+nav img { display: inline-block; }
+a { color: var(--green); }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 56px; height: 72px;
+  background: rgba(245,247,244,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-cta {
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px;
+  color: #fff; background: var(--green);
+  padding: 10px 26px; border-radius: 100px;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(42,138,94,.3);
+  transition: all .25s;
+}
+.nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+main { max-width: 820px; margin: 0 auto; padding: 72px 32px 120px; }
+.breadcrumb { font-family: 'Outfit', sans-serif; font-size: 12px; color: var(--muted); margin-bottom: 16px; letter-spacing: .05em; }
+.breadcrumb a { color: var(--green); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.page-title {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700; font-size: clamp(26px, 3.5vw, 34px);
+  color: var(--text); margin-bottom: 14px; line-height: 1.35;
+}
+.page-intro {
+  font-size: 14px; color: var(--muted); line-height: 1.95;
+  margin-bottom: 48px; padding-bottom: 28px; border-bottom: 1px solid var(--border);
+}
+.sc-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; font-size: 14px;
+}
+.sc-table th, .sc-table td { padding: 18px 22px; text-align: left; vertical-align: top; line-height: 1.85; }
+.sc-table th {
+  background: var(--green-light); color: var(--green-dark);
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 12px;
+  letter-spacing: .08em; width: 30%; border-right: 1px solid var(--border);
+}
+.sc-table tr { border-top: 1px solid var(--border); }
+.sc-table tr:first-child { border-top: none; }
+.sc-table td { color: var(--text); }
+.sc-table td strong { color: var(--green-dark); font-weight: 700; }
+.sc-table td ul { padding-left: 20px; margin-top: 4px; }
+.sc-table td li { margin-bottom: 2px; line-height: 1.8; }
+.sc-note {
+  margin-top: 20px; font-size: 12px; color: var(--muted); line-height: 1.85;
+}
+.page-meta {
+  margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); font-family: 'Outfit', sans-serif; letter-spacing: .05em;
+}
+
+footer {
+  padding: 28px 56px; background: #0d1a12;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: rgba(255,255,255,.3); font-family: 'Outfit', sans-serif; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-family: 'Outfit', sans-serif; font-size: 12px; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: #fff; }
+
+@media (max-width: 720px) {
+  nav { padding: 0 20px; }
+  main { padding: 48px 20px 80px; }
+  .page-title { font-size: 24px; }
+  .sc-table, .sc-table tbody, .sc-table tr, .sc-table th, .sc-table td { display: block; width: 100%; }
+  .sc-table { border-radius: 12px; }
+  .sc-table th { border-right: none; border-bottom: 1px solid var(--border); padding: 12px 18px; }
+  .sc-table td { padding: 14px 18px 18px; }
+  .sc-table tr { border-top: 1px solid var(--border); }
+  .sc-table tr:first-child th { border-top: none; }
+  footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="images/logo-horizotal2.png" alt="Callmint" style="height:40px;"></a>
+  <a href="index.html#contact" class="nav-cta">14日間無料で試す</a>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">ホーム</a> &nbsp;/&nbsp; 特定商取引法に基づく表記</div>
+  <h1 class="page-title">特定商取引法に基づく表記</h1>
+  <p class="page-intro">「特定商取引に関する法律」第11条に基づき、以下のとおり表示します。</p>
+
+  <table class="sc-table">
+    <tbody>
+      <tr><th>販売事業者</th><td>合同会社8ZERO</td></tr>
+      <tr><th>運営統括責任者</th><td>佐藤 美穂</td></tr>
+      <tr><th>所在地</th><td>東京都足立区綾瀬4-12-10</td></tr>
+      <tr><th>電話番号</th><td>請求があった場合に遅滞なく開示いたします。<br><a href="mailto:support@callmintai.com">support@callmintai.com</a> までご連絡ください。</td></tr>
+      <tr><th>メールアドレス</th><td><a href="mailto:support@callmintai.com">support@callmintai.com</a></td></tr>
+      <tr><th>販売URL</th><td><a href="https://callmintai.com">https://callmintai.com</a></td></tr>
+      <tr><th>販売価格</th><td>
+        <ul>
+          <li><strong>Starter プラン：</strong>月額 9,800円（税抜）／ 月100件まで、超過分 80円（税抜）/件</li>
+          <li><strong>Standard プラン：</strong>月額 19,800円（税抜）／ 月300件まで、超過分 60円（税抜）/件</li>
+          <li><strong>Pro プラン：</strong>月額 39,800円（税抜）／ 対応件数無制限</li>
+        </ul>
+        <div class="sc-note">※ 表示価格はすべて消費税抜きの金額です。別途、消費税が加算されます。<br>※ 最新の料金・プラン内容については <a href="index.html#pricing">料金プランページ</a> に記載のとおりとします。</div>
+      </td></tr>
+      <tr><th>商品代金以外の必要料金</th><td>初期費用は無料です（初期設定サポートを含みます）。<br>インターネット接続料金、通信料等はお客様のご負担となります。</td></tr>
+      <tr><th>お支払方法</th><td>クレジットカード決済</td></tr>
+      <tr><th>お支払時期</th><td>各料金プランに定める請求日</td></tr>
+      <tr><th>サービス提供時期</th><td>お申込みおよび初期設定の完了後、順次提供を開始します。</td></tr>
+      <tr><th>返品・キャンセル</th><td>本サービスはデジタルサービスの性質上、提供開始後の返金には応じかねます。解約のお申し出をいただいた場合、次回請求分以降の請求を停止いたします。</td></tr>
+      <tr><th>動作環境</th><td>Google Chrome、Safari、Microsoft Edge の各最新版を推奨します。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-meta">最終更新日：2026年4月22日</div>
+</main>
+
+<footer>
+  <img src="images/logo-horizotal2.png" alt="Callmint" style="height:26px;opacity:.55;">
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  <div class="footer-copy">© 2026 合同会社8ZERO. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
