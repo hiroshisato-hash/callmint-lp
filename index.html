@@ -528,8 +528,19 @@ footer {
   padding: 28px 56px; background: #0d1a12;
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid rgba(255,255,255,.06);
+  flex-wrap: wrap; gap: 16px;
 }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,.3); font-family: 'Outfit', sans-serif; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-family: 'Outfit', sans-serif; font-size: 12px; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: #fff; }
+
+/* ── FORM CONSENT ── */
+.form-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--muted); line-height: 1.7; padding: 4px 2px; }
+.form-consent input[type="checkbox"] { width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0; accent-color: var(--green); cursor: pointer; }
+.form-consent label { cursor: pointer; }
+.form-consent a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+.form-consent a:hover { color: var(--green-dark); }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -640,7 +651,7 @@ footer {
       </div>
       <div class="metric-card">
         <div class="metric-num">¥9,800</div>
-        <div class="metric-label">月額〜<br>初期費用なし</div>
+        <div class="metric-label">月額〜（税抜）<br>初期費用なし</div>
       </div>
     </div>
   </div>
@@ -874,13 +885,13 @@ footer {
       <div class="section-tag">料金プラン</div>
       <h2 class="section-title" style="margin-bottom:0">シンプルで明快な料金プラン</h2>
     </div>
-    <p class="pricing-note">すべてのプランに<br>初期設定サポートが含まれます</p>
+    <p class="pricing-note">表示価格はすべて税抜です<br>すべてのプランに初期設定サポートが含まれます</p>
   </div>
   <div class="pricing-grid">
     <div class="plan">
       <div class="plan-name">Starter</div>
-      <div class="plan-price">¥9,800<span>/月</span></div>
-      <div class="plan-overage">超過：¥80/件</div>
+      <div class="plan-price">¥9,800<span>/月（税抜）</span></div>
+      <div class="plan-overage">超過：¥80/件（税抜）</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span>月100件まで対応</li>
@@ -894,8 +905,8 @@ footer {
     <div class="plan rec">
       <div class="plan-badge">★ おすすめ</div>
       <div class="plan-name">Standard</div>
-      <div class="plan-price">¥19,800<span>/月</span></div>
-      <div class="plan-overage">超過：¥60/件</div>
+      <div class="plan-price">¥19,800<span>/月（税抜）</span></div>
+      <div class="plan-overage">超過：¥60/件（税抜）</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span>月300件まで対応</li>
@@ -908,7 +919,7 @@ footer {
     </div>
     <div class="plan">
       <div class="plan-name">Pro</div>
-      <div class="plan-price">¥39,800<span>/月</span></div>
+      <div class="plan-price">¥39,800<span>/月（税抜）</span></div>
       <div class="plan-overage">超過：なし</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
@@ -921,7 +932,7 @@ footer {
       <a href="#contact" class="plan-btn">始める</a>
     </div>
   </div>
-  <p class="pricing-footnote">※ 超過分単価は通話時間によって¥50〜¥80/件となります。詳細はお問い合わせください。</p>
+  <p class="pricing-footnote">※ 表示価格はすべて消費税抜きです。別途、消費税が加算されます。<br>※ 超過分単価は通話時間によって¥50〜¥80/件（税抜）となります。詳細はお問い合わせください。</p>
 </section>
 
 <!-- FAQ -->
@@ -985,6 +996,10 @@ footer {
         <input type="tel" class="form-input" placeholder="電話番号">
       </div>
       <textarea class="form-textarea" placeholder="ご相談内容（任意）"></textarea>
+      <div class="form-consent">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent"><a href="terms.html" target="_blank" rel="noopener">利用規約</a>および<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します</label>
+      </div>
       <button type="submit" class="form-submit">送信する</button>
       <p class="form-note"><span class="form-note-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>14日間無料トライアル付き｜クレジットカード不要</p>
     </form>
@@ -993,7 +1008,12 @@ footer {
 
 <footer>
   <img src="images/logo-horizotal2.png" alt="Callmint" style="height:26px;opacity:.55;">
-  <div class="footer-copy">© 2026 Callmint. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  <div class="footer-copy">© 2026 合同会社8ZERO. All rights reserved.</div>
 </footer>
 
 <script>
