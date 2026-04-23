@@ -988,14 +988,15 @@ footer {
     <div class="cta-form-title">無料相談を申し込む</div>
     <form class="cta-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
-        <input type="text" class="form-input" placeholder="サロン名" required>
-        <input type="text" class="form-input" placeholder="お名前" required>
+        <input type="text" name="salonName" class="form-input" placeholder="サロン名" required>
+        <input type="text" name="contactName" class="form-input" placeholder="お名前" required>
       </div>
       <div class="form-row">
-        <input type="email" class="form-input" placeholder="メールアドレス" required>
-        <input type="tel" class="form-input" placeholder="電話番号">
+        <input type="email" name="email" class="form-input" placeholder="メールアドレス" required>
+        <input type="tel" name="phone" class="form-input" placeholder="電話番号">
       </div>
-      <textarea class="form-textarea" placeholder="ご相談内容（任意）"></textarea>
+      <textarea name="message" class="form-textarea" placeholder="ご相談内容（任意）"></textarea>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
       <div class="form-consent">
         <input type="checkbox" id="consent" name="consent" required>
         <label for="consent"><a href="terms.html" target="_blank" rel="noopener">利用規約</a>および<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します</label>
@@ -1017,12 +1018,37 @@ footer {
 </footer>
 
 <script>
-function handleSubmit(e) {
+const CONTACT_API = 'https://callmint-cms.vercel.app/api/contact';
+
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✓ 送信完了！後ほどご連絡いたします。';
-  btn.style.background = '#1a5c3e';
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  const originalText = btn.textContent;
+
   btn.disabled = true;
+  btn.textContent = '送信中…';
+
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  try {
+    const res = await fetch(CONTACT_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || '送信に失敗しました');
+    }
+    btn.textContent = '✓ 送信完了！後ほどご連絡いたします。';
+    btn.style.background = '#1a5c3e';
+    form.reset();
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    alert('送信に失敗しました。お手数ですが時間をおいて再度お試しください。\n' + (err && err.message ? err.message : ''));
+  }
 }
 </script>
 </body>
