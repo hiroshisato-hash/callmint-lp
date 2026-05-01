@@ -407,7 +407,10 @@ nav {
 .pricing { padding: 112px 56px; background: var(--surface); border-top: 1px solid var(--border); }
 .pricing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
 .pricing-note { font-size: 13px; color: var(--muted); text-align: right; line-height: 1.8; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+@media (max-width: 1200px) {
+  .pricing-grid { grid-template-columns: repeat(2,1fr); }
+}
 .plan { background: var(--bg); border: 1px solid var(--border); border-radius: 24px; padding: 40px 36px; transition: all .3s; }
 .plan:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(0,0,0,.09); }
 .plan.rec { background: var(--green); border-color: var(--green); }
@@ -650,7 +653,7 @@ footer {
         <div class="metric-label">工事不要<br>最短1日で開始</div>
       </div>
       <div class="metric-card">
-        <div class="metric-num">¥9,800</div>
+        <div class="metric-num">¥4,980</div>
         <div class="metric-label">月額〜（税抜）<br>初期費用なし</div>
       </div>
     </div>
@@ -890,11 +893,11 @@ footer {
   <div class="pricing-grid">
     <div class="plan">
       <div class="plan-name">Starter</div>
-      <div class="plan-price">¥9,800<span>/月（税抜）</span></div>
-      <div class="plan-overage">超過：¥80/件（税抜）</div>
+      <div class="plan-price">¥4,980<span>/月（税抜）</span></div>
+      <div class="plan-overage">超過：¥150/件（税抜）</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>月100件まで対応</li>
+        <li><span class="plan-check">✓</span>月50件まで対応</li>
         <li><span class="plan-check">✓</span>基本的な予約受付</li>
         <li><span class="plan-check">✓</span>通話ログ管理</li>
         <li><span class="plan-check">✓</span>メール通知</li>
@@ -904,12 +907,12 @@ footer {
     </div>
     <div class="plan rec">
       <div class="plan-badge">★ おすすめ</div>
-      <div class="plan-name">Standard</div>
-      <div class="plan-price">¥19,800<span>/月（税抜）</span></div>
-      <div class="plan-overage">超過：¥60/件（税抜）</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-price">¥14,800<span>/月（税抜）</span></div>
+      <div class="plan-overage">超過：¥100/件（税抜）</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>月300件まで対応</li>
+        <li><span class="plan-check">✓</span>月200件まで対応</li>
         <li><span class="plan-check">✓</span>予約受付 + FAQ対応</li>
         <li><span class="plan-check">✓</span>通話ログ + 分析レポート</li>
         <li><span class="plan-check">✓</span>AIによる毎朝の改善提案</li>
@@ -919,11 +922,11 @@ footer {
     </div>
     <div class="plan">
       <div class="plan-name">Pro</div>
-      <div class="plan-price">¥39,800<span>/月（税抜）</span></div>
-      <div class="plan-overage">超過：なし</div>
+      <div class="plan-price">¥29,800<span>/月（税抜）</span></div>
+      <div class="plan-overage">超過：¥80/件（税抜）</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>件数無制限</li>
+        <li><span class="plan-check">✓</span>月500件まで対応</li>
         <li><span class="plan-check">✓</span>予約システム連携</li>
         <li><span class="plan-check">✓</span>カスタム応答設定</li>
         <li><span class="plan-check">✓</span>専任サポート</li>
@@ -931,8 +934,22 @@ footer {
       </ul>
       <a href="#contact" class="plan-btn">始める</a>
     </div>
+    <div class="plan">
+      <div class="plan-name">MAX</div>
+      <div class="plan-price">別途お見積り<span style="display:block;margin-top:4px">初期費用 ¥100,000〜（税抜）</span></div>
+      <div class="plan-overage">通話従量課金</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="plan-check">✓</span>最上位 AI 自然対話モデル</li>
+        <li><span class="plan-check">✓</span>大規模・多店舗チェーン向け</li>
+        <li><span class="plan-check">✓</span>カスタム要件への個別対応</li>
+        <li><span class="plan-check">✓</span>専任エンジニアサポート</li>
+        <li><span class="plan-check">✓</span>SLA・優先障害対応</li>
+      </ul>
+      <a href="#contact" class="plan-btn">お問い合わせ</a>
+    </div>
   </div>
-  <p class="pricing-footnote">※ 表示価格はすべて消費税抜きです。別途、消費税が加算されます。<br>※ 超過分単価は通話時間によって¥50〜¥80/件（税抜）となります。詳細はお問い合わせください。</p>
+  <p class="pricing-footnote">※ 表示価格はすべて消費税抜きです。別途、消費税が加算されます。<br>※ すべてのプランに番号維持費 ¥500/月（税抜）が別途発生します。<br>※ MAX プランは初期費用と通話従量課金の組み合わせとなります。詳細はお問い合わせください。</p>
 </section>
 
 <!-- FAQ -->
