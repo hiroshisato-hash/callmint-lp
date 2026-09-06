@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "lp-src/**/*.mjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "lp-src/e2e.mjs"
+  ],
+  "$comment": "lp-src/e2e.mjs は playwright（任意依存）とブラウザ内コードのため型検査の対象外。"
+}
