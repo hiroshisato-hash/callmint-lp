@@ -18,7 +18,8 @@
   ],
   "exclude": [
     "node_modules",
-    "lp-src/e2e.mjs"
+    "lp-src/e2e.mjs",
+    "lp-src/art/render.mjs"
   ],
-  "$comment": "lp-src/e2e.mjs は playwright（任意依存）とブラウザ内コードのため型検査の対象外。"
+  "$comment": "lp-src/e2e.mjs と lp-src/art/render.mjs は playwright（任意依存）を使うため型検査の対象外。"
 }

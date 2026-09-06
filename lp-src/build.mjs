@@ -185,7 +185,10 @@ export function imagesBrief() {
     'このファイルは `npm run build:lp` が **自動生成** します。手で編集しないでください。',
     '内容の正本は `lp-src/config/imageBriefs.mjs`、スロットの定義は `lp-src/config/<slug>.mjs` です。',
     '',
-    '全21カット。撮影・図解の担当者にはこのファイルをそのまま渡せます。',
+    '全21カット。**うち15カット（イラスト調の画面・図解）は作成済み**で、',
+    '`lp-src/art/` のソースから `node lp-src/art/render.mjs` で再生成できます。',
+    '残る6カットは**写真**で、撮影またはストック写真の手配が必要です（下表の「要撮影」）。',
+    '',
     '**指定のファイル名で `images/lp/<slug>/` に置くだけで反映されます**（コード変更は不要）。',
     '',
     `## ${COMMON_BRIEF.title}`,
@@ -203,11 +206,17 @@ export function imagesBrief() {
       const [w, h] = slot.ratio.split('/').map((/** @type {string} */ n) => Number(n.trim()))
       const width = slot.ratio === '9 / 19.5' ? 780 : 1200
       const height = Math.round((width * /** @type {number} */ (h)) / /** @type {number} */ (w))
-      lines.push(`### ${c.slug}-${i}. ${slot.where}`, '')
+      const badge = !b ? '' : b.status === 'photo' ? ' 🖼 **要撮影**' : ' ✅ 作成済み（イラスト）'
+      lines.push(`### ${c.slug}-${i}. ${slot.where}${badge}`, '')
       lines.push(`- **ファイル名**: \`${slot.src}\``)
       lines.push(`- **比率 / サイズ**: ${slot.ratio}（${width}×${height}px 以上）`)
       lines.push(`- **alt テキスト**: ${slot.alt}`)
       if (b) {
+        if (b.status === 'illustration') {
+          lines.push('- **状態**: 作成済み。差し替えたい場合は `lp-src/art/artworks.mjs` を編集して再生成してください')
+        } else {
+          lines.push('- **状態**: 未作成。撮影またはストック写真が必要です')
+        }
         lines.push(`- **被写体**: ${b.subject}`)
         lines.push('- **指示**:')
         for (const d of b.detail) lines.push(`  - ${d}`)

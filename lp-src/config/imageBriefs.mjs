@@ -5,9 +5,15 @@
  * 「使われていない指示が無いこと」を検査する。
  *
  * 書いてよい内容の原則（LP本文と同じ）
- *   - 実在しないUIを描かない。画面系は**実画面のスクリーンショットを加工**して作る
+ *   - **画面カットはイラスト調でよい**（写実的なスクショである必要はない）。
+ *     線引きは画風ではなく中身で、**実在しない機能を描かないこと**。
  *   - 実測していない数値（時間短縮・改善率）を図に入れない
  *   - 実データ（顧客名・電話番号・スタッフ名）はダミーに置き換える
+ *   - データが載る画面には「サンプル表示」を入れる
+ *
+ * status:
+ *   'illustration' … lp-src/art/ で作成済み（`node lp-src/art/render.mjs` で再生成）
+ *   'photo'        … 撮影またはストック写真が必要。ここは生成できない
  */
 
 /** 全カットに共通する条件 */
@@ -20,16 +26,17 @@ export const COMMON_BRIEF = {
     ['文字', '**写真に文字を焼き込まないこと。** 見出しはLP側で重ねます。図解カット（匿名性の図・比較図）だけは例外で、図中の日本語は最小限に。'],
     ['構図', 'スマートフォン（幅390px）で最も小さく表示されます。主要被写体は中央寄りに、細部に頼らない構図で。'],
     ['人物', '肖像権の同意を取得すること。お客様は後ろ姿・手元など**顔が特定されない角度**で。'],
-    ['画面カット', '実画面のスクリーンショットを加工して作る。**存在しない機能・ボタンを描き足さない。** 顧客名・電話番号・スタッフ名はダミーに置換。'],
+    ['画面カット', '**イラスト調で構いません**（写実的なスクリーンショットである必要はない）。ただし画風にかかわらず**存在しない機能・ボタンを描かない**こと。顧客名・電話番号・スタッフ名はダミーに置換し、データが載る画面には「サンプル表示」を入れる。'],
     ['他社の表示', 'HOT PEPPER Beauty / SALON BOARD のUI・ロゴは原則写さない。LINEの画面を使う場合はLINEヤフーの各種ガイドラインを確認すること。'],
     ['数値', '「30分→3分」のような**実測していない数値を図に入れない**（公開してよい成果の数字がないため）。相対的な長短で表現する。'],
   ],
 }
 
-/** @type {Record<string, {subject:string, detail:string[], avoid:string[]}>} */
+/** @type {Record<string, {status:'illustration'|'photo', subject:string, detail:string[], avoid:string[]}>} */
 export const IMAGE_BRIEFS = {
   /* ── サーベイ ───────────────────────────── */
   '/images/lp/survey/hero.webp': {
+    status: 'photo',
     subject: '営業中のサロンで働くスタッフチーム（3〜4人）',
     detail: [
       '引き〜中景。数人が接客・施術・片付けなど別々の動きをしている、活気のある一瞬。',
@@ -42,9 +49,10 @@ export const IMAGE_BRIEFS = {
     ],
   },
   '/images/lp/survey/dashboard.webp': {
+    status: 'illustration',
     subject: '店舗ごとのコンディションの推移を表示した管理画面',
     detail: [
-      'MOYOサーベイの**実画面のスクリーンショット**を加工して作る。',
+      'イラスト調の画面。店舗ごとの推移が読み取れることが目的。',
       '店舗名は「A店」「B店」等のダミーに置換。',
       '「前回からどう動いたか」が読み取れる推移グラフを主役に。',
       'ブラウザ枠やノートPCに入れ込んでも可。画面が主役なので枠は控えめに。',
@@ -52,6 +60,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['実在しないグラフ・指標を描き足すこと。', '個人名・個人の回答内容が見えること。'],
   },
   '/images/lp/survey/flow-invite.webp': {
+    status: 'illustration',
     subject: 'LINEにサーベイの案内が届いたスマホ画面',
     detail: [
       'LINEのトーク画面。MOYOからの短い案内メッセージと、回答へ進むボタンが見える状態。',
@@ -60,6 +69,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['実在の個人アカウント名・アイコン・他のトークの内容が写ること。'],
   },
   '/images/lp/survey/mobile-response.webp': {
+    status: 'illustration',
     subject: 'スタッフが回答している画面',
     detail: [
       '選択式の質問が1問と、選択肢が並んだ回答画面。',
@@ -69,6 +79,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['長文の記述式だけが見えている画面（時間がかかる印象になります）。'],
   },
   '/images/lp/survey/flow-summary.webp': {
+    status: 'illustration',
     subject: '店舗ごとの結果のまとめ（スマホ表示）',
     detail: [
       '店長・オーナーがスマホで見る一覧画面。店舗名はダミー。',
@@ -77,6 +88,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['個人が特定できる粒度の表示（LPの主張と矛盾します）。'],
   },
   '/images/lp/survey/owner-report.webp': {
+    status: 'photo',
     subject: 'オーナーがスマホでレポートを確認している場面',
     detail: [
       'バックヤードやカウンターで、スマホを見ている中景。画面の中身は読めなくてよい。',
@@ -85,6 +97,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['深刻・悲壮な表情。', '書類やPCが山積みの雑然とした背景。'],
   },
   '/images/lp/survey/anonymity.webp': {
+    status: 'illustration',
     subject: '匿名性のしくみを説明する図解（イラスト）',
     detail: [
       '左: 複数のスタッフアイコン → 中央: 回答が個人と切り離される表現 → 右: 店舗単位の集計グラフ。',
@@ -99,6 +112,7 @@ export const IMAGE_BRIEFS = {
 
   /* ── ブログ ─────────────────────────────── */
   '/images/lp/blog/hero.webp': {
+    status: 'photo',
     subject: '施術後のヘアスタイルをスマホで撮影している場面',
     detail: [
       '美容師がスマホを構えて仕上がりを撮っている瞬間。鏡越しの構図が使いやすい。',
@@ -108,9 +122,10 @@ export const IMAGE_BRIEFS = {
     avoid: ['スマホの画面が白飛びして何を撮っているか分からない状態。'],
   },
   '/images/lp/blog/generation-flow.webp': {
+    status: 'illustration',
     subject: 'AIがブログの下書きを作成している管理画面',
     detail: [
-      'CMSの**実画面のスクリーンショット**を加工。写真をアップした状態＋生成中または下書き表示。',
+      'イラスト調の画面。写真・タイトル・本文・狙うキーワードが並んだ下書き表示。',
       '「タイトル」「本文」「狙いキーワード」の欄が見えると分かりやすい。',
     ],
     avoid: [
@@ -118,11 +133,13 @@ export const IMAGE_BRIEFS = {
     ],
   },
   '/images/lp/blog/flow-photo.webp': {
+    status: 'illustration',
     subject: '施術写真をLINEで送信した直後のスマホ画面',
     detail: ['LINEのトーク画面に施術写真を1枚送った状態。送信直後が分かる表示で。'],
     avoid: ['実在の個人アカウント名・他のトークが写ること。'],
   },
   '/images/lp/blog/flow-line-preview.webp': {
+    status: 'illustration',
     subject: 'LINE上に届いた下書きのプレビュー',
     detail: [
       '生成されたタイトルと本文の冒頭が、LINEのメッセージとして表示されている状態。',
@@ -131,6 +148,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['実在しないボタン（「投稿する」等）を描き足すこと。'],
   },
   '/images/lp/blog/flow-copy.webp': {
+    status: 'illustration',
     subject: '完成した記事をコピーしている画面',
     detail: [
       '記事の編集画面で「コピー」の操作が分かる状態。**コピペで投稿する**という事実が伝わることが目的。',
@@ -140,6 +158,7 @@ export const IMAGE_BRIEFS = {
     ],
   },
   '/images/lp/blog/article-preview.webp': {
+    status: 'illustration',
     subject: '完成したブログ記事',
     detail: [
       'タイトル・施術写真・本文が組まれた記事の表示。ブラウザ枠に入れると「公開された記事」だと伝わる。',
@@ -148,6 +167,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['HOT PEPPER Beauty のロゴや実UIを再現すること。'],
   },
   '/images/lp/blog/comparison.webp': {
+    status: 'illustration',
     subject: '従来の作業とMOYOを使った場合の比較図（イラスト）',
     detail: [
       '上段「これまで」: 撮影 → 文章を一から考える → 書く → 投稿（長い帯）。',
@@ -162,6 +182,7 @@ export const IMAGE_BRIEFS = {
 
   /* ── 電話 ───────────────────────────────── */
   '/images/lp/call/hero.webp': {
+    status: 'photo',
     subject: '施術中の美容師と、手前で着信しているスマートフォン',
     detail: [
       '手前のカウンターに画面が光って着信中のスマホ、奥にカラー塗布中など**手が離せない**美容師をボケで。',
@@ -174,15 +195,17 @@ export const IMAGE_BRIEFS = {
     ],
   },
   '/images/lp/call/transcript.webp': {
+    status: 'illustration',
     subject: '通話内容がテキスト化された管理画面',
     detail: [
-      'CMSの**実画面のスクリーンショット**を加工。会話が時系列で並んでいる状態。',
+      'イラスト調の画面。AIとお客様の会話が時系列で並んでいる状態。',
       '「予約希望」などの用件が分かる表示があると良い。',
       '顧客名・電話番号はダミーに置換（例: 090-0000-0000／サンプル 様）。',
     ],
     avoid: ['実在の顧客情報が残ること。', '実装されていない分析指標を足すこと。'],
   },
   '/images/lp/call/flow-incoming.webp': {
+    status: 'illustration',
     subject: 'AIが電話に応答している状態を示す画面',
     detail: [
       '着信〜AI応答中が分かる画面。実機の通話画面を使う場合は相手先表示をダミーに。',
@@ -191,6 +214,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['人のスタッフが対応しているように見える表現。'],
   },
   '/images/lp/call/flow-intake.webp': {
+    status: 'illustration',
     subject: '受け付けた内容の確認画面',
     detail: [
       '希望日時・お名前・ご連絡先・用件が並んだ受付内容の画面。すべてダミーデータ。',
@@ -199,11 +223,13 @@ export const IMAGE_BRIEFS = {
     avoid: ['「予約確定」「確約」と読める強い表示（LPの主張と矛盾します）。'],
   },
   '/images/lp/call/flow-notify.webp': {
+    status: 'illustration',
     subject: 'スタッフへ届いた通知のスマホ画面',
     detail: ['LINEまたはSMSで受付内容の通知が届いた画面。ダミーデータで。'],
     avoid: ['実在の個人アカウント・他の通知が写ること。'],
   },
   '/images/lp/call/notification.webp': {
+    status: 'photo',
     subject: 'スタッフがバックヤードで通知を確認している場面',
     detail: [
       '手が空いたタイミングでスマホの通知を確認している中景。落ち着いた雰囲気。',
@@ -212,6 +238,7 @@ export const IMAGE_BRIEFS = {
     avoid: ['慌てて対応している演出（「後で確認できる」が主張です）。'],
   },
   '/images/lp/call/salon.webp': {
+    status: 'photo',
     subject: '実際にMOYOを利用しているサロンの店内',
     detail: [
       '⚠️ **実在の導入店舗（BONHEUR HAIR／ZiL 亀有）を撮る場合は、掲載許諾を必ず取得すること。**',
