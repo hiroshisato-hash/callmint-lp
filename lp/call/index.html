@@ -81,7 +81,7 @@ body{padding-bottom:calc(var(--sticky-h) + env(safe-area-inset-bottom,0px))}
   letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);
   background:var(--green-light);border-radius:999px;padding:6px 14px;margin-bottom:14px;
 }
-.h2{font-size:26px;font-weight:700;margin-bottom:14px}
+.h2{font-size:26px;font-weight:700;margin-bottom:14px;word-break:auto-phrase}
 .h2 em{font-style:normal;color:var(--green);display:block}
 .lead{font-size:15px;color:var(--muted);margin-bottom:28px}
 .card{
@@ -147,7 +147,10 @@ body{padding-bottom:calc(var(--sticky-h) + env(safe-area-inset-bottom,0px))}
   box-shadow:var(--shadow);margin-bottom:18px;
 }
 .hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;flex:none}
-.hero h1{font-size:30px;font-weight:700;margin-bottom:16px;letter-spacing:-.02em}
+.hero h1{font-size:30px;font-weight:700;margin-bottom:16px;letter-spacing:-.02em;
+  /* 日本語を文節で折り返す。「か？」だけが行に取り残されるのを防ぐ。
+     未対応ブラウザは無視するだけで、従来どおりの折り返しになる。 */
+  word-break:auto-phrase}
 .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
 .hero-sub{font-size:15px;color:var(--muted);margin-bottom:24px}
 .hero-media{margin-bottom:24px}
@@ -397,12 +400,12 @@ posthog.init("phc_CZUuhM26c3BNkvvAx5Cg79Ci77Ux935w4ckfCdhrUXcR", {
       </div>
       <div class="hero-media">
         <figure class="imgslot" style="--ratio:4 / 3">
-  <img src="/images/lp/call/hero.webp" alt="施術中の美容師のそばで着信しているスマートフォン" width="1200" height="900"
+  <img src="/images/lp/call/hero.webp" alt="施術中の美容師のそばで着信している電話" width="1200" height="900"
        decoding="async" fetchpriority="high"
        onerror="this.closest('.imgslot').classList.add('is-missing');this.remove()">
   <figcaption class="imgslot-ph" aria-hidden="true">
     <span class="imgslot-ph-label">画像スロット</span>
-    <span class="imgslot-ph-caption">施術中の美容師と着信中のスマートフォン</span>
+    <span class="imgslot-ph-caption">施術中の美容師と着信中の電話</span>
     <span class="imgslot-ph-meta">4 / 3／/images/lp/call/hero.webp</span>
   </figcaption>
 </figure>
@@ -554,7 +557,7 @@ posthog.init("phc_CZUuhM26c3BNkvvAx5Cg79Ci77Ux935w4ckfCdhrUXcR", {
     <p class="lead">「電話に出るために手を止める」回数を減らすための使い方です。</p>
     <div class="stack--lg stack">
       <figure class="imgslot" style="--ratio:3 / 2">
-  <img src="/images/lp/call/notification.webp" alt="スタッフのスマートフォンに届いた受付内容の通知" width="1200" height="900"
+  <img src="/images/lp/call/notification.webp" alt="スタッフがスマートフォンで受付内容の通知を確認している様子" width="1200" height="900"
        decoding="async" loading="lazy"
        onerror="this.closest('.imgslot').classList.add('is-missing');this.remove()">
   <figcaption class="imgslot-ph" aria-hidden="true">
@@ -596,12 +599,12 @@ posthog.init("phc_CZUuhM26c3BNkvvAx5Cg79Ci77Ux935w4ckfCdhrUXcR", {
     <h2 class="h2">できることと、<em>できないこと。</em></h2>
     <p class="lead">導入したあとに「思っていたのと違う」とならないよう、先に書いておきます。</p>
     <figure class="imgslot" style="--ratio:4 / 3">
-  <img src="/images/lp/call/salon.webp" alt="実際にMOYOを利用している美容室の店内" width="1200" height="900"
+  <img src="/images/lp/call/salon.webp" alt="明るく清潔感のある美容室の店内" width="1200" height="900"
        decoding="async" loading="lazy"
        onerror="this.closest('.imgslot').classList.add('is-missing');this.remove()">
   <figcaption class="imgslot-ph" aria-hidden="true">
     <span class="imgslot-ph-label">画像スロット</span>
-    <span class="imgslot-ph-caption">導入店舗の様子</span>
+    <span class="imgslot-ph-caption">サロンのイメージ</span>
     <span class="imgslot-ph-meta">4 / 3／/images/lp/call/salon.webp</span>
   </figcaption>
 </figure>

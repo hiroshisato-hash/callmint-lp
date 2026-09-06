@@ -81,7 +81,7 @@ body{padding-bottom:calc(var(--sticky-h) + env(safe-area-inset-bottom,0px))}
   letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);
   background:var(--green-light);border-radius:999px;padding:6px 14px;margin-bottom:14px;
 }
-.h2{font-size:26px;font-weight:700;margin-bottom:14px}
+.h2{font-size:26px;font-weight:700;margin-bottom:14px;word-break:auto-phrase}
 .h2 em{font-style:normal;color:var(--green);display:block}
 .lead{font-size:15px;color:var(--muted);margin-bottom:28px}
 .card{
@@ -147,7 +147,10 @@ body{padding-bottom:calc(var(--sticky-h) + env(safe-area-inset-bottom,0px))}
   box-shadow:var(--shadow);margin-bottom:18px;
 }
 .hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;flex:none}
-.hero h1{font-size:30px;font-weight:700;margin-bottom:16px;letter-spacing:-.02em}
+.hero h1{font-size:30px;font-weight:700;margin-bottom:16px;letter-spacing:-.02em;
+  /* 日本語を文節で折り返す。「か？」だけが行に取り残されるのを防ぐ。
+     未対応ブラウザは無視するだけで、従来どおりの折り返しになる。 */
+  word-break:auto-phrase}
 .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
 .hero-sub{font-size:15px;color:var(--muted);margin-bottom:24px}
 .hero-media{margin-bottom:24px}

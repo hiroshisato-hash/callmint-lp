@@ -37,9 +37,9 @@ export default {
   images: {
     hero: {
       src: '/images/lp/call/hero.webp',
-      alt: '施術中の美容師のそばで着信しているスマートフォン',
+      alt: '施術中の美容師のそばで着信している電話',
       ratio: '4 / 3',
-      caption: '施術中の美容師と着信中のスマートフォン',
+      caption: '施術中の美容師と着信中の電話',
     },
     solution: {
       src: '/images/lp/call/transcript.webp',
@@ -49,15 +49,15 @@ export default {
     },
     usecase: {
       src: '/images/lp/call/notification.webp',
-      alt: 'スタッフのスマートフォンに届いた受付内容の通知',
+      alt: 'スタッフがスマートフォンで受付内容の通知を確認している様子',
       ratio: '3 / 2',
       caption: 'スタッフへの通知',
     },
     trust: {
       src: '/images/lp/call/salon.webp',
-      alt: '実際にMOYOを利用している美容室の店内',
+      alt: '明るく清潔感のある美容室の店内',
       ratio: '4 / 3',
-      caption: '導入店舗の様子',
+      caption: 'サロンのイメージ',
     },
   },
 
