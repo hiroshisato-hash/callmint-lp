@@ -14,6 +14,7 @@ Instagram 等の広告から着地させる LP を生成します。3本の訴�
 ```
 lp-src/
 ├── config/common.mjs   キャンペーン・料金・フォーム項目・計測（3ページ共通）
+├── config/imageBriefs.mjs  画像の制作指示（撮影・図解の担当者へ渡す内容）
 ├── config/survey.mjs   ページ固有の文章・画像・機能説明
 ├── config/blog.mjs
 ├── config/call.mjs
@@ -29,8 +30,11 @@ lp-src/
 **文章・画像・機能説明を変えたいだけなら `config/` だけ**を触ります。
 レイアウトを変えるときだけ `render.mjs` / `styles.mjs` に入ります。
 
-⚠️ **生成物 `lp/<slug>/index.html` と `images/lp/README.md` を手で編集しない。**
-次のビルドで上書きされます。
+⚠️ **生成物を手で編集しない。** 次のビルドで上書きされます。
+- `lp/<slug>/index.html` … LP本体
+- `images/lp/README.md` … 必要画像の一覧（ファイル名・比率・サイズ・alt）
+- `images/lp/BRIEF.md` … **画像制作指示書**。撮影・図解の担当者にそのまま渡せます
+  （中身の正本は `lp-src/config/imageBriefs.mjs`。スロットとの対応はテストが検査します）
 
 ## コマンド
 

@@ -7,7 +7,8 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { esc, imageSlot, jsonScript } from '../html.mjs'
-import { renderPage, PAGES, siteUrl } from '../build.mjs'
+import { renderPage, PAGES, siteUrl, imageSlotsOf, imagesBrief } from '../build.mjs'
+import { IMAGE_BRIEFS } from '../config/imageBriefs.mjs'
 import { lintPage, findClaim } from '../lint.mjs'
 import { PRICING, CAMPAIGN, FORM_FEATURES, EVENTS, UTM_KEYS, CONTACT_API } from '../config/common.mjs'
 
@@ -241,5 +242,35 @@ describe('lint 自体が機能する', () => {
   it('捏造数値を検出する', () => {
     const problems = lintPage('<html><h1>a</h1>離職が30%改善しました</html>', 'survey')
     assert.ok(problems.some((p) => p.rule === 'banned-claim'), '数値の捏造を検出できていない')
+  })
+})
+
+describe('画像の制作指示', () => {
+  const slotSrcs = PAGES.flatMap((c) => imageSlotsOf(c).map((s) => s.src))
+
+  it('全21スロットに指示がある', () => {
+    assert.equal(slotSrcs.length, 21)
+    const missing = slotSrcs.filter((src) => !IMAGE_BRIEFS[src])
+    assert.deepEqual(missing, [], `指示が無いスロット: ${missing.join(', ')}`)
+  })
+
+  it('使われていない指示が残っていない', () => {
+    const orphan = Object.keys(IMAGE_BRIEFS).filter((src) => !slotSrcs.includes(src))
+    assert.deepEqual(orphan, [], `対応するスロットが無い指示: ${orphan.join(', ')}`)
+  })
+
+  it('どの指示にも被写体・指示・避けることが揃っている', () => {
+    for (const [src, b] of Object.entries(IMAGE_BRIEFS)) {
+      assert.ok(b.subject && b.subject.length > 5, `${src}: 被写体が薄い`)
+      assert.ok(b.detail.length >= 1, `${src}: 指示が無い`)
+      assert.ok(b.avoid.length >= 1, `${src}: 避けることが無い`)
+    }
+  })
+
+  it('指示書にファイル名・比率・altが載る', () => {
+    const md = imagesBrief()
+    for (const src of slotSrcs) assert.ok(md.includes(src), `${src} が指示書に無い`)
+    assert.match(md, /9 \/ 19\.5（780×1690px 以上）/)
+    assert.match(md, /全カット共通の条件/)
   })
 })

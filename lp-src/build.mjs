@@ -23,6 +23,7 @@ import {
   DEFAULT_SITE, CONTACT_API, POSTHOG, META_PIXEL_ID, CAMPAIGN, EVENTS, UTM_KEYS,
 } from './config/common.mjs'
 
+import { IMAGE_BRIEFS, COMMON_BRIEF } from './config/imageBriefs.mjs'
 import survey from './config/survey.mjs'
 import blog from './config/blog.mjs'
 import call from './config/call.mjs'
@@ -176,6 +177,51 @@ export function imagesReadme() {
   return lines.join('\n')
 }
 
+/** 画像の制作指示を Markdown で書き出す（images/lp/BRIEF.md） */
+export function imagesBrief() {
+  const lines = [
+    '# 広告LP 画像制作指示書',
+    '',
+    'このファイルは `npm run build:lp` が **自動生成** します。手で編集しないでください。',
+    '内容の正本は `lp-src/config/imageBriefs.mjs`、スロットの定義は `lp-src/config/<slug>.mjs` です。',
+    '',
+    '全21カット。撮影・図解の担当者にはこのファイルをそのまま渡せます。',
+    '**指定のファイル名で `images/lp/<slug>/` に置くだけで反映されます**（コード変更は不要）。',
+    '',
+    `## ${COMMON_BRIEF.title}`,
+    '',
+  ]
+  for (const [k, v] of COMMON_BRIEF.items) lines.push(`- **${k}**: ${v}`)
+  lines.push('')
+
+  for (const c of PAGES) {
+    lines.push('---', '', `## /lp/${c.slug}/ — ${c.meta.title.split('｜')[0]}`, '')
+    let i = 0
+    for (const slot of imageSlotsOf(c)) {
+      i += 1
+      const b = IMAGE_BRIEFS[slot.src]
+      const [w, h] = slot.ratio.split('/').map((/** @type {string} */ n) => Number(n.trim()))
+      const width = slot.ratio === '9 / 19.5' ? 780 : 1200
+      const height = Math.round((width * /** @type {number} */ (h)) / /** @type {number} */ (w))
+      lines.push(`### ${c.slug}-${i}. ${slot.where}`, '')
+      lines.push(`- **ファイル名**: \`${slot.src}\``)
+      lines.push(`- **比率 / サイズ**: ${slot.ratio}（${width}×${height}px 以上）`)
+      lines.push(`- **alt テキスト**: ${slot.alt}`)
+      if (b) {
+        lines.push(`- **被写体**: ${b.subject}`)
+        lines.push('- **指示**:')
+        for (const d of b.detail) lines.push(`  - ${d}`)
+        lines.push('- **避けること**:')
+        for (const a of b.avoid) lines.push(`  - ${a}`)
+      } else {
+        lines.push('- ⚠️ 制作指示が未定義です（lp-src/config/imageBriefs.mjs に追加してください）')
+      }
+      lines.push('')
+    }
+  }
+  return lines.join('\n')
+}
+
 /** @param {any} c */
 function outPath(c) {
   return pathJoin(ROOT, 'lp', c.slug, 'index.html')
@@ -203,20 +249,25 @@ function main() {
     console.log(`書き出し: lp/${c.slug}/index.html (${(html.length / 1024).toFixed(1)} KB)`)
   }
 
-  const readme = imagesReadme()
-  const readmePath = pathJoin(ROOT, 'images', 'lp', 'README.md')
-  if (check) {
-    const current = existsSync(readmePath) ? readFileSync(readmePath, 'utf8') : null
-    if (current !== readme) {
-      console.error('✗ images/lp/README.md が設定と一致しません（npm run build:lp を実行してください）')
-      bad++
+  const docs = [
+    { name: 'README.md', content: imagesReadme() },
+    { name: 'BRIEF.md', content: imagesBrief() },
+  ]
+  for (const { name, content } of docs) {
+    const docPath = pathJoin(ROOT, 'images', 'lp', name)
+    if (check) {
+      const current = existsSync(docPath) ? readFileSync(docPath, 'utf8') : null
+      if (current !== content) {
+        console.error(`✗ images/lp/${name} が設定と一致しません（npm run build:lp を実行してください）`)
+        bad++
+      } else {
+        console.log(`✓ images/lp/${name}: 一致`)
+      }
     } else {
-      console.log('✓ images/lp/README.md: 一致')
+      mkdirSync(dirname(docPath), { recursive: true })
+      writeFileSync(docPath, content)
+      console.log(`書き出し: images/lp/${name}`)
     }
-  } else {
-    mkdirSync(dirname(readmePath), { recursive: true })
-    writeFileSync(readmePath, readme)
-    console.log('書き出し: images/lp/README.md')
   }
 
   if (bad > 0) process.exit(1)
