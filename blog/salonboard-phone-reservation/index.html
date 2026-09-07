@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サロンボード電話予約の一元管理とダブルブッキング対策｜MOYO</title>
+<meta name="description" content="ホットペッパービューティー掲載サロンで起きやすい、サロンボードと電話予約のダブルブッキング。予約枠のズレが生まれる仕組みから、電話予約を取りこぼさず一元管理する運用ルール、AI電話受付を使った自動化までを具体的に解説します。">
+<link rel="canonical" href="https://call.moyo.tokyo/blog/salonboard-phone-reservation/">
+<meta property="og:title" content="サロンボード×電話予約の一元管理術——ホットペッパー併用サロンのダブルブッキング対策">
+<meta property="og:description" content="サロンボードと電話予約でダブルブッキングが起きる仕組みと、取りこぼさず一元管理する運用ルール、AI電話受付による自動化まで解説します。">
+<meta property="og:url" content="https://call.moyo.tokyo/blog/salonboard-phone-reservation/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://call.moyo.tokyo/blog/salonboard-phone-reservation/hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://call.moyo.tokyo/blog/salonboard-phone-reservation/hero.webp">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preload" as="image" href="hero.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": "https://call.moyo.tokyo/blog/salonboard-phone-reservation/hero.webp",
+  "headline": "サロンボード×電話予約の一元管理術——ホットペッパー併用サロンのダブルブッキング対策",
+  "description": "サロンボードと電話予約でダブルブッキングが起きる仕組みと、取りこぼさず一元管理する運用ルール、AI電話受付による自動化まで解説します。",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {"@type": "Organization", "name": "MOYO Call"},
+  "publisher": {"@type": "Organization", "name": "MOYO Call", "url": "https://call.moyo.tokyo"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://call.moyo.tokyo/blog/salonboard-phone-reservation/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://call.moyo.tokyo/"},
+    {"@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://call.moyo.tokyo/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "サロンボード×電話予約の一元管理術——ホットペッパー併用サロンのダブルブッキング対策", "item": "https://call.moyo.tokyo/blog/salonboard-phone-reservation/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "サロンボードと電話予約でダブルブッキングが起きるのはなぜですか？",
+      "acceptedAnswer": {"@type": "Answer", "text": "ネット予約はサロンボード上でリアルタイムに枠が埋まりますが、電話予約は「聞いてから手入力する」までにタイムラグが生じます。施術中に電話を受けてメモだけ残し、あとで入力しようとした数分〜数十分の間に、同じ枠がネット経由で埋まるのが典型的な発生パターンです。つまり原因は担当者のミスではなく、入力タイミングのズレという構造にあります。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ダブルブッキングを防ぐ運用ルールで、まず決めるべきことは何ですか？",
+      "acceptedAnswer": {"@type": "Answer", "text": "「予約の正本（マスター）はサロンボードだけ」と決め、紙のメモや個人LINE、頭の中を予約台帳にしないことです。そのうえで、電話を受けたらその場でサロンボードを開いて空き確認と登録まで完了させる、手が離せない時は折り返しにする、という2択に絞ります。入力を後回しにできる逃げ道を残さないことが、最も効果の大きい対策です。"}
+    },
+    {
+      "@type": "Question",
+      "name": "施術中の電話にどうしても出られない場合、どうすればいいですか？",
+      "acceptedAnswer": {"@type": "Answer", "text": "無理に出て中途半端に受けるより、留守電や自動応答で用件と連絡先を確実に残してもらい、手が空いたタイミングでまとめて折り返す方が安全です。ただし美容室への電話は取り逃すと他店へ流れやすいため、AI電話受付のように24時間応答し、日時・メニュー・氏名・電話番号を構造化して残せる仕組みを併用すると、機会損失と二重予約の両方を抑えられます。"}
+    },
+    {
+      "@type": "Question",
+      "name": "AI電話受付を導入すれば、サロンボードへの入力は不要になりますか？",
+      "acceptedAnswer": {"@type": "Answer", "text": "入力の負担は大きく減りますが、サロンボードは外部からの自動書き込みが前提の仕組みではないため、最終的な予約確定はスタッフが反映する運用が基本です。AI側で日時・メニュー・お客様情報が整理された状態で届くため、聞き直しやメモの解読が不要になり、反映までの時間が短縮されます。この「反映までの時間」を縮めることが、そのままダブルブッキングの発生確率を下げることにつながります。"}
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #f7f7fa;
+  --surface: #ffffff;
+  --surface2: #eeeafe;
+  --green: #6d4bf6;
+  --green-light: #eeeafe;
+  --green-dark: #4c2fd4;
+  --text: #14171a;
+  --muted: #4d545b;
+  --border: #e2e0ee;
+  --mint: #b45cf0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 400;
+  overflow-x: clip;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+nav img { display: inline-block; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 56px; height: 72px;
+  background: rgba(245,247,244,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-link {
+  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500;
+  color: var(--muted); text-decoration: none; transition: color .2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--green); }
+.nav-cta {
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px;
+  color: #fff; background: var(--green);
+  padding: 10px 26px; border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(109,75,246,.3);
+  transition: all .25s;
+}
+.nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+/* ARTICLE LAYOUT */
+.article-wrap {
+  padding-top: 72px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-left: 24px; padding-right: 24px;
+}
+.breadcrumb {
+  padding: 20px 0 0;
+  font-family: 'Outfit', sans-serif; font-size: 12px;
+  color: var(--muted); display: flex; gap: 6px; align-items: center;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--green); }
+.breadcrumb-sep { color: var(--border); }
+
+.article-hero-img { width: 100%; max-height: 440px; object-fit: cover; border-radius: 20px; margin-bottom: 36px; display: block; }
+.article-header { padding: 0 0 32px; }
+.article-tag {
+  font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--green); background: var(--green-light);
+  padding: 4px 12px; border-radius: 100px;
+  display: inline-block; margin-bottom: 16px;
+}
+.article-header h1 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700; font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.35; color: var(--text); margin-bottom: 16px;
+}
+.article-meta {
+  font-family: 'Outfit', sans-serif; font-size: 12px;
+  color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap;
+}
+.article-body { padding-bottom: 80px; }
+.article-body h2 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700; font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--text); margin: 56px 0 20px;
+  padding-left: 16px; border-left: 4px solid var(--green);
+  line-height: 1.4;
+}
+.article-body h3 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700; font-size: 18px;
+  color: var(--text); margin: 36px 0 14px;
+}
+.article-body p { font-size: 15px; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
+.article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 20px; }
+.article-body li { font-size: 15px; line-height: 1.85; margin-bottom: 8px; }
+.article-body strong { color: var(--green-dark); font-weight: 700; }
+
+/* TOC */
+.toc {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px 28px; margin-bottom: 48px;
+}
+.toc-title {
+  font-size: 13px; font-weight: 700; color: var(--muted);
+  font-family: 'Outfit', sans-serif; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { font-size: 14px; line-height: 1.7; margin-bottom: 4px; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* COMPARISON TABLE */
+.comp-table-wrap { overflow-x: auto; margin: 32px 0; border-radius: 16px; border: 1px solid var(--border); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.comp-table th {
+  background: var(--green-dark); color: #fff;
+  padding: 14px 16px; text-align: left;
+  font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 13px;
+}
+.comp-table th:first-child { border-radius: 16px 0 0 0; }
+.comp-table th:last-child { border-radius: 0 16px 0 0; }
+.comp-table td {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.6;
+}
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:nth-child(even) td { background: var(--surface2); }
+.comp-table .highlight td { background: var(--green-light) !important; border-left: 3px solid var(--green); }
+.badge-best {
+  display: inline-block; font-family: 'Outfit', sans-serif; font-size: 10px;
+  font-weight: 700; color: #fff; background: var(--green);
+  padding: 2px 8px; border-radius: 100px; margin-left: 6px; vertical-align: middle;
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--green-light); border: 1px solid rgba(109,75,246,.2);
+  border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+}
+.callout p { margin: 0; font-size: 14px; color: var(--green-dark); }
+.callout strong { color: var(--green-dark); }
+
+/* RELATED */
+.related { margin-top: 56px; padding-top: 40px; border-top: 2px solid var(--green-light); }
+.related-title {
+  font-size: 13px; font-weight: 700; color: var(--muted);
+  font-family: 'Outfit', sans-serif; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.related-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px;
+  text-decoration: none; color: var(--text);
+  transition: transform .2s, box-shadow .2s;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(109,75,246,.08); border-color: rgba(109,75,246,.25); }
+.related-card-emoji { font-size: 28px; }
+.related-card-title { font-size: 13px; font-weight: 700; line-height: 1.5; color: var(--text); }
+.related-card-arrow { font-size: 12px; color: var(--green); margin-top: auto; }
+
+/* CTA BOX */
+.cta-box {
+  background: var(--green-dark); border-radius: 20px;
+  padding: 40px; text-align: center; margin: 48px 0;
+}
+.cta-box-title {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700; font-size: 20px; color: #fff; margin-bottom: 12px;
+}
+.cta-box-sub { font-size: 13px; color: rgba(255,255,255,.65); margin-bottom: 24px; line-height: 1.8; }
+.cta-box-btn {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px;
+  color: var(--green-dark); background: #fff;
+  padding: 14px 36px; border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  transition: all .25s;
+}
+.cta-box-btn:hover { transform: translateY(-2px); }
+
+footer {
+  padding: 32px 56px; background: var(--green-dark);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: rgba(255,255,255,.3); font-family: 'Outfit', sans-serif; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-family: 'Outfit', sans-serif; font-size: 12px; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* seo_fix: 記事本文の素の table 用ベーススタイル（自動挿入・手で消さない） */
+.article-body table {
+  width: 100%; border-collapse: collapse; font-size: 14.5px; margin: 28px 0;
+  display: block; overflow-x: auto;
+}
+.article-body table th {
+  background: var(--surface2); text-align: left; padding: 12px 14px;
+  font-weight: 700; border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.article-body table td {
+  padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top;
+}
+.article-body table tr:last-child td { border-bottom: none; }
+
+/* 固定ナビ（高さ72px）の下に見出しが潜らないようにする。
+   ナビのリンクと、記事の目次リンクの着地点が両方これに乗る。 */
+[id] { scroll-margin-top: 88px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="/images/lockup-call.png" alt="MOYO Call" style="height:40px;" decoding="async"></a>
+  <div class="nav-links">
+    <a href="/#features" class="nav-link">機能</a>
+    <a href="/#case" class="nav-link">導入事例</a>
+    <a href="/#pricing" class="nav-link">料金</a>
+    <a href="/#faq" class="nav-link">よくある質問</a>
+    <a href="/blog/" class="nav-link active">ブログ</a>
+  </div>
+  <a href="/#contact" class="nav-cta">14日間無料で試す</a>
+</nav>
+
+<div class="article-wrap">
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <a href="/">ホーム</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/blog/">ブログ</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>サロンボード×電話予約の一元管理術</span>
+  </nav>
+
+  <img src="hero.webp" alt="やわらかな自然光が差し込む美容室で、スタイリストがお客様を施術している様子" class="article-hero-img" fetchpriority="high" decoding="async" width="1200" height="800">
+  <header class="article-header">
+    <span class="article-tag">予約管理</span>
+    <h1>サロンボード×電話予約の一元管理術——ホットペッパー併用サロンのダブルブッキング対策</h1>
+    <div class="article-meta">
+      <span>📅 2026年9月7日</span>
+      <span>⏱ 読了目安：7分</span>
+      <span>✍️ MOYO Call編集部</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <div class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#section1">サロンボードと電話予約の管理が、なぜこんなに難しいのか</a></li>
+        <li><a href="#section2">ダブルブッキングの本当のコスト</a></li>
+        <li><a href="#section3">今日からできる、サロンボード×電話予約の一元管理ルール</a></li>
+        <li><a href="#section4">電話の「取りこぼし」と「入力遅れ」を同時に解決する</a></li>
+        <li><a href="#section5">まとめ：管理の型を決めれば、事故は減る</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ol>
+    </div>
+
+<h2 id="section1">サロンボードと電話予約の管理が、なぜこんなに難しいのか</h2>
+
+<p>ホットペッパービューティーからのネット予約はサロンボードに自動で入る。けれど電話予約は、あなたが手で入れるまでどこにも存在しません。この「手で入れるまでの数分間」こそが、ダブルブッキングの温床です。</p>
+
+<p>サロンボード・電話予約の管理でつまずくサロンは、決して段取りが悪いわけではありません。むしろ逆で、施術に集中しているサロンほど起きやすい。ドライヤーを当てながら鳴る電話、カラー塗布中に鳴る電話——「後で入れよう」と思った瞬間から、台帳と現実がズレはじめます。</p>
+
+<h3>反映までの「空白の10分」が事故を生む</h3>
+
+<p>実際にありがちな流れです。14時02分に電話が鳴り、お客様が「土曜の11時、空いてますか?」と聞く。サロンボードを見ると空いている。「大丈夫ですよ」と答え、名前と番号を紙に書く。ここで次のお客様が来店し、入力は後回し。14時09分、別のお客様がホットペッパー経由で同じ土曜11時をネット予約——成立してしまいます。</p>
+
+<p>ネット予約は24時間365日、あなたが接客中でも動き続けます。空白が10分あれば、人気の土日夕方枠は普通に埋まります。<strong>ダブルブッキングは不注意ではなく、構造上ほぼ必ず起きる事故</strong>だと考えたほうが正確です。</p>
+
+<h3>「保留にして確認します」の間にも枠は動く</h3>
+
+<p>指名スタッフの空きを確認するために保留にする、奥のスタッフに声をかける。この30秒〜1分の間にも予約枠は動きます。特にスタッフが2〜3名いるサロンでは、誰がどの枠を口頭で押さえたかが共有されず、二人が別々のお客様に同じ枠を約束するケースも起きます。</p>
+
+<h2 id="section2">ダブルブッキングの本当のコスト</h2>
+
+<h3>1件あたりの損失を金額で見る</h3>
+
+<p>ダブルブッキングが1件起きたとき、実際に何が減るのか。カット+カラーで平均単価12,000円のサロンを例に整理します。</p>
+
+<table>
+<tr><th>発生する損失</th><th>目安</th></tr>
+<tr><td>お断りした1名分の売上</td><td>12,000円</td></tr>
+<tr><td>謝罪の電話・日程調整の時間</td><td>15〜20分</td></tr>
+<tr><td>お詫び対応(トリートメント無料等)</td><td>3,000〜5,000円</td></tr>
+<tr><td>そのお客様の再来なし(LTV喪失)</td><td>年3回×12,000円=36,000円</td></tr>
+</table>
+
+<p>1件のダブルブッキングで、単純計算でも5万円前後が飛びます。月に2回起きていれば年間120万円規模。しかもこの数字には、待たされたお客様の不満は含まれていません。</p>
+
+<h3>口コミへの波及が一番怖い</h3>
+
+<p>「予約したのに席がなかった」という体験は、口コミに書かれやすい体験の代表格です。技術への不満は主観として流されることもありますが、予約ミスは事実として書かれます。星3以下のレビューが1本つくだけで、そのページの新規予約は目に見えて鈍ります。</p>
+
+<h2 id="section3">今日からできる、サロンボード×電話予約の一元管理ルール</h2>
+
+<h3>ルール1:サロンボードを「唯一の正」と決める</h3>
+
+<p>紙のノート、スマホのメモ、LINEのやり取り——予約情報の置き場所が複数ある時点で、管理は破綻します。<strong>サロンボードに入っていない予約は「存在しない予約」</strong>と全員で決めてください。紙メモは入力までの一時的な付箋であって、台帳ではありません。</p>
+
+<h3>ルール2:電話を切る前に入れる、を徹底する</h3>
+
+<p>もっとも効果が大きいのに、もっとも守られないルールです。「お名前をフルネームでいただけますか」と復唱している間に入力を終える。それが無理な状況なら、<strong>お客様に「5分後に確定のご連絡を差し上げます」と伝えて、確定を保留にする</strong>。曖昧に「大丈夫です」と言い切らないだけで、事故の半分は消えます。</p>
+
+<h3>ルール3:危険な枠を先に知っておく</h3>
+
+<p>ダブルブッキングはどの時間帯でも均等に起きるわけではありません。多くのサロンで事故が集中するのは次の3つです。</p>
+
+<ul>
+<li><strong>土日の11時台・14時台</strong>——ネット予約の競合が最も激しい</li>
+<li><strong>金曜の18時以降</strong>——週末前の駆け込みが電話とネットで同時に来る</li>
+<li><strong>連休前の3日間</strong>——普段より予約密度が上がり、空きが一瞬で消える</li>
+</ul>
+
+<p>この枠については「電話で即答しない」という運用に切り替えるだけでも、事故率は大きく下がります。</p>
+
+<h3>ルール4:週1回、5分の突き合わせをする</h3>
+
+<p>翌週分の予約を、週の頭に5分だけ確認します。名前が空欄の枠、連絡先が入っていない枠、メニューが未設定の枠——これらは入力漏れのサインです。5分の点検で1件のトラブルが防げるなら、時給換算では圧倒的に得な作業です。</p>
+
+<h2 id="section4">電話の「取りこぼし」と「入力遅れ」を同時に解決する</h2>
+
+<h3>そもそも電話に出られていない、という前提</h3>
+
+<p>ここまで入力の話をしてきましたが、より深刻な問題があります。<strong>施術中の電話は、そもそも取れていない</strong>という事実です。一人サロンでは営業中の電話の3〜5割が不応答になっているケースも珍しくありません。留守電を残す人は少数派なので、その多くは他店に流れています。</p>
+
+<p>そして折り返した頃には、お客様はもう別のサロンを予約している。電話予約の管理を考えるとき、「入力ミス」よりも先に「機会損失」を数えるべきなのはこのためです。</p>
+
+<h3>AIが一次受けする、という選択肢</h3>
+
+<p>ここ数年で現実的になったのが、電話の一次受けをAIに任せる方法です。AI電話が着信を取り、希望日時・メニュー・お名前・連絡先をヒアリングし、その内容がそのまま管理画面に記録される。手書きメモを経由しないので、入力遅れという概念自体がなくなります。</p>
+
+<p>MOYO Callを導入したサロンでは、施術中にかかってきた電話をAIが受け、予約希望の内容が即座にデータとして残るため、「後で入力しよう」と思ったまま忘れる事故そのものが消えました。オーナーは手が空いたタイミングで内容を確認し、サロンボードに確定させるだけ。営業時間外や定休日の着信も同じように受けられるので、月曜定休のサロンが日曜夜の予約希望を拾えるようになった、という声もあります。</p>
+
+<p>もちろん、AIに任せても最終確認は人の仕事です。ただ「電話に出られない」「メモを入れ忘れる」という2つの穴が同時に塞がることの効果は、想像以上に大きいはずです。</p>
+
+<h2 id="section5">まとめ:管理の型を決めれば、事故は減る</h2>
+
+<p>サロンボードと電話予約の管理でダブルブッキングをなくすために、押さえるべきは4点です。</p>
+
+<ul>
+<li>予約情報の置き場所をサロンボード1つに統一する</li>
+<li>電話を切る前に入力する。無理なら即答せず折り返す</li>
+<li>土日11時・14時、金曜夕方など危険な枠を把握しておく</li>
+<li>週1回5分、翌週分を点検する</li>
+</ul>
+
+<p>そのうえで、電話の取りこぼしが月に何件あるかを一度数えてみてください。もし週に5件以上あるなら、運用の工夫だけでは追いつかない段階に来ています。AI電話のような仕組みで入口そのものを自動化するほうが、確実に早く、確実に安く済みます。</p>
+
+<p>予約管理は、根性ではなく型で解決する領域です。今日決めた1つのルールが、来月の5万円を守ります。</p>
+
+    <h2 id="faq">よくある質問</h2>
+
+    <h3>サロンボードと電話予約でダブルブッキングが起きるのはなぜですか？</h3>
+    <p>ネット予約はサロンボード上でリアルタイムに枠が埋まりますが、電話予約は「聞いてから手入力する」までにタイムラグが生じます。施術中に電話を受けてメモだけ残し、あとで入力しようとした数分〜数十分の間に、同じ枠がネット経由で埋まるのが典型的な発生パターンです。つまり原因は担当者のミスではなく、入力タイミングのズレという構造にあります。</p>
+
+    <h3>ダブルブッキングを防ぐ運用ルールで、まず決めるべきことは何ですか？</h3>
+    <p>「予約の正本（マスター）はサロンボードだけ」と決め、紙のメモや個人LINE、頭の中を予約台帳にしないことです。そのうえで、電話を受けたらその場でサロンボードを開いて空き確認と登録まで完了させる、手が離せない時は折り返しにする、という2択に絞ります。入力を後回しにできる逃げ道を残さないことが、最も効果の大きい対策です。</p>
+
+    <h3>施術中の電話にどうしても出られない場合、どうすればいいですか？</h3>
+    <p>無理に出て中途半端に受けるより、留守電や自動応答で用件と連絡先を確実に残してもらい、手が空いたタイミングでまとめて折り返す方が安全です。ただし美容室への電話は取り逃すと他店へ流れやすいため、AI電話受付のように24時間応答し、日時・メニュー・氏名・電話番号を構造化して残せる仕組みを併用すると、機会損失と二重予約の両方を抑えられます。</p>
+
+    <h3>AI電話受付を導入すれば、サロンボードへの入力は不要になりますか？</h3>
+    <p>入力の負担は大きく減りますが、サロンボードは外部からの自動書き込みが前提の仕組みではないため、最終的な予約確定はスタッフが反映する運用が基本です。AI側で日時・メニュー・お客様情報が整理された状態で届くため、聞き直しやメモの解読が不要になり、反映までの時間が短縮されます。この「反映までの時間」を縮めることが、そのままダブルブッキングの発生確率を下げることにつながります。</p>
+
+    <div class="cta-box">
+      <div class="cta-box-title">MOYO Callのデモを電話で体験する</div>
+      <p class="cta-box-sub">実際のAI応対をサロンのお客様視点で確かめてください。<br>050-1793-6450 に電話するだけです。</p>
+      <a href="tel:05017936450" class="cta-box-btn">📞 050-1793-6450 に電話する</a>
+    </div>
+
+    <div class="related">
+      <div class="related-title">関連記事</div>
+      <div class="related-grid">
+        <a href="/blog/salon-cancellation-noshow-prevention/" class="related-card">
+          <div class="related-card-emoji">📅</div>
+          <div class="related-card-title">美容室の予約キャンセル問題を解決する——ノーショウ率を下げる実践テクニック</div>
+          <div class="related-card-arrow">→</div>
+        </a>
+        <a href="/blog/salon-holiday-booking-automation/" class="related-card">
+          <div class="related-card-emoji">🌙</div>
+          <div class="related-card-title">美容室の定休日に予約が入る仕組み——AI電話が休日集客を変える理由</div>
+          <div class="related-card-arrow">→</div>
+        </a>
+        <a href="/blog/salon-phone-complete-guide/" class="related-card">
+          <div class="related-card-emoji">📖</div>
+          <div class="related-card-title">美容室の電話対応 完全ガイド【2026年版】</div>
+          <div class="related-card-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer>
+  <img src="/images/lockup-call-white.png" alt="MOYO Call" style="height:26px;opacity:.55;" decoding="async" loading="lazy">
+  <div class="footer-links">
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/terms.html">利用規約</a>
+    <a href="/tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="https://8zero.co.jp" target="_blank" rel="noopener">運営会社</a>
+  </div>
+  <div class="footer-copy">© 2026 合同会社8ZERO. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
