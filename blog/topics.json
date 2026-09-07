@@ -2,7 +2,7 @@
   {
     "id": 1,
     "theme": "美容室のリピーター率を上げる5つの仕組み——予約管理から始める顧客定着戦略",
-    "slug": "salon-repeat-customer-strategy",
+    "slug": "salon-repeater-customer-retention",
     "category": "経営・集客",
     "targetKeyword": "美容室 リピーター 増やす",
     "factCheck": false,
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "theme": "ヘアサロンの口コミを増やす方法——Googleマップ評価を自然に集める仕掛け",
-    "slug": "salon-google-review-strategy",
+    "slug": "hair-salon-reviews-increase",
     "category": "集客・マーケティング",
     "targetKeyword": "美容室 口コミ 増やす",
     "factCheck": false,
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "theme": "一人サロン開業にかかるコストと回収期間——失敗しない資金計画の立て方",
-    "slug": "solo-salon-startup-cost",
+    "slug": "solo-salon-startup-cost-payback",
     "category": "開業・経営",
     "targetKeyword": "一人サロン 開業 費用",
     "factCheck": true,
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "theme": "美容室の予約キャンセル問題を解決する——ノーショウ率を下げる実践テクニック",
-    "slug": "salon-no-show-reduction",
+    "slug": "salon-cancellation-noshow-prevention",
     "category": "予約管理",
     "targetKeyword": "美容室 キャンセル 対策",
     "factCheck": false,
@@ -42,7 +42,7 @@
     "category": "ネイル・エステ",
     "targetKeyword": "ネイルサロン 集客 SNS",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "category": "スタッフ管理",
     "targetKeyword": "美容室 スタッフ 離職 防ぐ",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "category": "ネイル・エステ",
     "targetKeyword": "エステ 顧客単価 アップ",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "category": "電話・AI活用",
     "targetKeyword": "美容室 定休日 予約",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "category": "経営・数字",
     "targetKeyword": "サロン 経営 数字 管理",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "category": "ネイル・エステ",
     "targetKeyword": "まつ毛エクステ サロン 電話",
     "factCheck": false,
-    "status": "pending"
+    "status": "published"
   },
   {
     "id": 11,
