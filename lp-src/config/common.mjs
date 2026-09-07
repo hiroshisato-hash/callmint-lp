@@ -142,7 +142,7 @@ export const FOOTER_LINKS = [
   { href: '/privacy.html', label: 'プライバシーポリシー' },
   { href: '/terms.html', label: '利用規約' },
   { href: '/tokushoho.html', label: '特定商取引法に基づく表記' },
-  { href: '/', label: 'MOYO Call トップ' },
+  { href: '/', label: 'MOYO トップ' },
   { href: 'https://8zero.co.jp', label: '運営会社', external: true },
 ]
 

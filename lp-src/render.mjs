@@ -369,7 +369,7 @@ export function finalSection(c) {
 export function header(c) {
   return `<header class="hdr">
   <div class="hdr-in">
-    <a href="/"><img src="/images/lockup-call.png" alt="MOYO" width="240" height="64" decoding="async"></a>
+    <a href="/"><img src="/images/moyo-wordmark.png" alt="MOYO" width="1408" height="288" decoding="async"></a>
     <a href="#apply" class="hdr-cta" data-cta="header">${esc(c.ctaLabel)}</a>
   </div>
 </header>`
@@ -378,7 +378,7 @@ export function header(c) {
 export function footer() {
   return `<footer class="ftr" data-cta-park>
   <div class="wrap">
-    <img src="/images/lockup-call-white.png" alt="MOYO" width="240" height="64" decoding="async" loading="lazy">
+    <img src="/images/moyo-wordmark-white.png" alt="MOYO" width="1408" height="288" decoding="async" loading="lazy">
     <div class="ftr-links">
       ${FOOTER_LINKS.map((l) =>
         `<a href="${esc(l.href)}"${l.external ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a>`
